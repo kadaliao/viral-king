@@ -130,7 +130,7 @@ export function ResultCard({ run, cards, onContinue }: { run: RunState; cards: C
               </span>
             </div>
             <div className="result-views">
-              <Sprite id="views" scale={2} />
+              {lv.milestone > 0 ? <Sprite id={`milestone_${Math.min(5, lv.milestone)}`} scale={2} /> : <Sprite id="views" scale={2} />}
               <NumberRoll value={record.stats.views} duration={700} className="huge t-score glow-yellow" />
               <span className="t-muted">次播放</span>
             </div>

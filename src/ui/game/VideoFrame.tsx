@@ -82,6 +82,7 @@ export function VideoFrame(p: Props) {
         </div>
         {p.banner && (
           <div key={p.banner.key} className={`ms-banner ms-tier-${p.banner.tier}`}>
+            <Sprite id={`milestone_${Math.min(5, p.banner.tier)}`} scale={3} />
             {p.banner.text}
           </div>
         )}
