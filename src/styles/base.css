@@ -1,0 +1,212 @@
+@font-face {
+  font-family: 'FusionPixel';
+  src: url('/fonts/fusion-pixel-12px.woff2') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --ink: #0b0618;
+  --bg0: #0b0618;
+  --bg1: #130a2b;
+  --bg2: #1d1142;
+  --panel: #1a1038;
+  --panel2: #241650;
+  --line: #3d2b80;
+  --line2: #5b45b0;
+  --text: #f3eaff;
+  --muted: #a397d6;
+  --dim: #6c61a0;
+  --pink: #ff3ea5;
+  --pink-d: #a3125f;
+  --green: #39ff88;
+  --green-d: #12884a;
+  --yellow: #ffe14d;
+  --yellow-d: #a37f00;
+  --cyan: #3ee8ff;
+  --cyan-d: #0f7d99;
+  --red: #ff3355;
+  --orange: #ff7a2f;
+  --gold: #ffb020;
+  --base-c: #3ee8ff;
+  --mult-c: #ff3ea5;
+  --score-c: #ffe14d;
+  --font: 'FusionPixel', 'PingFang SC', 'Microsoft YaHei', monospace;
+  --card-w: 112px;
+  --card-h: 156px;
+  --art-w: 96px;
+  --art-h: 124px;
+  --notch: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  background: var(--bg0);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 12px;
+  line-height: 1.5;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
+  text-rendering: optimizeSpeed;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+}
+
+img.sprite {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: block;
+  pointer-events: none;
+}
+.sprite-missing {
+  display: inline-block;
+  background: repeating-linear-gradient(45deg, #2d1b5a 0 4px, #1a0f33 4px 8px);
+}
+
+.app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.shake-root {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------------- background */
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 120%, #4a1a7a 0%, transparent 55%),
+    radial-gradient(ellipse at 10% -10%, #1b2a6b 0%, transparent 50%),
+    linear-gradient(180deg, #0b0618 0%, #160b33 55%, #2a0f4a 100%);
+}
+.bg-stars {
+  position: absolute;
+  inset: -50%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #fff8 50%, transparent 51%),
+    radial-gradient(2px 2px at 140px 90px, #3ee8ff99 50%, transparent 51%),
+    radial-gradient(2px 2px at 220px 160px, #ff3ea599 50%, transparent 51%),
+    radial-gradient(2px 2px at 80px 200px, #ffe14d88 50%, transparent 51%);
+  background-size: 260px 240px;
+  animation: stars 90s linear infinite;
+  opacity: 0.6;
+}
+@keyframes stars {
+  to {
+    transform: translate(260px, 240px);
+  }
+}
+.bg-grid {
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  bottom: -10%;
+  height: 55%;
+  background-image:
+    linear-gradient(#ff3ea533 2px, transparent 2px),
+    linear-gradient(90deg, #ff3ea533 2px, transparent 2px);
+  background-size: 64px 64px;
+  transform: perspective(300px) rotateX(60deg);
+  transform-origin: 50% 100%;
+  animation: grid 4s linear infinite;
+  mask-image: linear-gradient(transparent, #000 60%);
+  -webkit-mask-image: linear-gradient(transparent, #000 60%);
+  opacity: 0.5;
+}
+@keyframes grid {
+  to {
+    background-position: 0 64px;
+  }
+}
+
+/* ---------------------------------------------------------------- CRT */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background:
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.55) 100%);
+  mix-blend-mode: multiply;
+  animation: crt-flicker 6s infinite steps(1);
+}
+@keyframes crt-flicker {
+  0%, 100% { opacity: 1; }
+  47% { opacity: 0.92; }
+  48% { opacity: 1; }
+  80% { opacity: 0.96; }
+}
+
+.fx-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 900;
+  image-rendering: pixelated;
+}
+
+/* ---------------------------------------------------------------- text helpers */
+.t-base { color: var(--base-c); }
+.t-mult { color: var(--mult-c); }
+.t-score { color: var(--score-c); }
+.t-green { color: var(--green); }
+.t-pink { color: var(--pink); }
+.t-yellow { color: var(--yellow); }
+.t-cyan { color: var(--cyan); }
+.t-red { color: var(--red); }
+.t-muted { color: var(--muted); }
+.t-gold { color: var(--gold); }
+
+.big { font-size: 24px; line-height: 1.25; }
+.huge { font-size: 36px; line-height: 1.15; }
+.mega { font-size: 48px; line-height: 1.1; }
+
+.shadow-text {
+  text-shadow: 2px 2px 0 var(--ink), -1px -1px 0 var(--ink), 1px -1px 0 var(--ink), -1px 1px 0 var(--ink);
+}
+.glow-pink { text-shadow: 0 0 6px #ff3ea5aa, 2px 2px 0 #5a0a35; }
+.glow-yellow { text-shadow: 0 0 8px #ffe14daa, 3px 3px 0 #6b4a00; }
+.glow-cyan { text-shadow: 0 0 6px #3ee8ffaa, 2px 2px 0 #08384a; }
+.glow-green { text-shadow: 0 0 6px #39ff88aa, 2px 2px 0 #0a4a24; }
+
+/* pixel notched corners */
+.notch {
+  clip-path: polygon(
+    0 var(--notch), var(--notch) var(--notch), var(--notch) 0,
+    calc(100% - var(--notch)) 0, calc(100% - var(--notch)) var(--notch), 100% var(--notch),
+    100% calc(100% - var(--notch)), calc(100% - var(--notch)) calc(100% - var(--notch)), calc(100% - var(--notch)) 100%,
+    var(--notch) 100%, var(--notch) calc(100% - var(--notch)), 0 calc(100% - var(--notch))
+  );
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg1); }
+::-webkit-scrollbar-thumb { background: var(--line2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-stars, .bg-grid, .crt-overlay { animation: none; }
+}
