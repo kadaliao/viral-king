@@ -273,7 +273,7 @@
   background-size: 300% 300%;
   animation: shimmer 3s linear infinite;
 }
-@keyframes rare-glow { 50% { filter: brightness(1.25) drop-shadow(0 0 6px var(--rar-c)); } }
+@keyframes rare-glow { 50% { filter: brightness(1.2); } }
 .acard-sm { --art-w: 72px; --art-h: 90px; }
 .acard-sm .acard-art { margin-top: 6px; }
 

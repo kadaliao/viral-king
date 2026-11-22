@@ -87,7 +87,7 @@ export function VideoFrame(p: Props) {
           </div>
         )}
         {!!p.comboCount && p.comboCount > 2 && (
-          <div key={p.comboCount} className="combo-counter" style={{ fontSize: Math.min(36, 12 + p.comboCount) }}>
+          <div key={p.comboCount} className="combo-counter" style={{ fontSize: p.comboCount >= 10 ? 36 : 24 }}>
             连击 ×{p.comboCount}
           </div>
         )}

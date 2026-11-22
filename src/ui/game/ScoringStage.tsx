@@ -29,15 +29,15 @@ function sourceEl(step: ScoreStep): Element | null {
 
 function stepText(step: ScoreStep): { text: string; color: string; size: number } {
   switch (step.kind) {
-    case 'base': return { text: `+${formatNum(step.amount)}`, color: '#3ee8ff', size: 20 };
-    case 'mult': return { text: `+${formatNum(step.amount)} 倍`, color: '#ff3ea5', size: 20 };
-    case 'xmult': return { text: `×${formatMult(step.amount)}`, color: '#ffe14d', size: Math.min(48, 24 + Math.log2(step.amount) * 6) };
-    case 'xbase': return { text: `基础×${formatMult(step.amount)}`, color: step.amount < 1 ? '#ff3355' : '#3ee8ff', size: 20 };
-    case 'retrigger': return { text: '再来一次!', color: '#39ff88', size: 20 };
-    case 'coins': return { text: `${step.amount > 0 ? '+' : ''}${step.amount} 金币`, color: '#ffb020', size: 18 };
-    case 'debuff': return { text: `×${formatMult(step.amount)}`, color: '#ff3355', size: 28 };
+    case 'base': return { text: `+${formatNum(step.amount)}`, color: '#3ee8ff', size: 24 };
+    case 'mult': return { text: `+${formatNum(step.amount)} 倍`, color: '#ff3ea5', size: 24 };
+    case 'xmult': return { text: `×${formatMult(step.amount)}`, color: '#ffe14d', size: step.amount >= 3 ? 48 : 36 };
+    case 'xbase': return { text: `基础×${formatMult(step.amount)}`, color: step.amount < 1 ? '#ff3355' : '#3ee8ff', size: 24 };
+    case 'retrigger': return { text: '再来一次!', color: '#39ff88', size: 24 };
+    case 'coins': return { text: `${step.amount > 0 ? '+' : ''}${step.amount} 金币`, color: '#ffb020', size: 24 };
+    case 'debuff': return { text: `×${formatMult(step.amount)}`, color: '#ff3355', size: 36 };
     case 'combo': return { text: step.label, color: '#ffffff', size: 24 };
-    default: return { text: step.label, color: '#ffffff', size: 16 };
+    default: return { text: step.label, color: '#ffffff', size: 12 };
   }
 }
 

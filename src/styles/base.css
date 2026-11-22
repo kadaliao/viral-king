@@ -147,10 +147,8 @@ img.sprite {
   pointer-events: none;
   z-index: 9999;
   background:
-    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px),
-    radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.55) 100%);
-  mix-blend-mode: multiply;
-  animation: crt-flicker 6s infinite steps(1);
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.07) 0 1px, transparent 1px 4px),
+    radial-gradient(ellipse at center, transparent 65%, rgba(0, 0, 0, 0.45) 100%);
 }
 @keyframes crt-flicker {
   0%, 100% { opacity: 1; }
@@ -188,10 +186,7 @@ img.sprite {
 .shadow-text {
   text-shadow: 2px 2px 0 var(--ink), -1px -1px 0 var(--ink), 1px -1px 0 var(--ink), -1px 1px 0 var(--ink);
 }
-.glow-pink { text-shadow: 0 0 6px #ff3ea5aa, 2px 2px 0 #5a0a35; }
-.glow-yellow { text-shadow: 0 0 8px #ffe14daa, 3px 3px 0 #6b4a00; }
-.glow-cyan { text-shadow: 0 0 6px #3ee8ffaa, 2px 2px 0 #08384a; }
-.glow-green { text-shadow: 0 0 6px #39ff88aa, 2px 2px 0 #0a4a24; }
+.glow-pink, .glow-yellow, .glow-cyan, .glow-green { text-shadow: 2px 2px 0 var(--ink); }
 
 /* pixel notched corners */
 .notch {
