@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { sound } from '../../audio/sfx';
 import { COMBO_MAP } from '../../data/combos';
 import { formatMult, formatNum } from '../../engine/num';
 import type { Card, RunState, ScoreStep } from '../../engine/types';
@@ -76,7 +75,6 @@ export function ResultCard({ run, cards, onContinue }: { run: RunState; cards: C
       }
     };
     const t = window.setTimeout(() => window.addEventListener('keydown', onKey), 300);
-    if (cleared) sound.play('stageClear');
     return () => {
       clearTimeout(t);
       window.removeEventListener('keydown', onKey);

@@ -95,3 +95,28 @@ export function outline(s: Sprite, key = 'k', diag = false): Sprite {
   );
   return { ...s, rows: out.map((r) => r.join('')) };
 }
+
+/** Build a sprite procedurally: fn returns a palette key ('.' = transparent) for each pixel. */
+export function shape(w: number, h: number, fn: (x: number, y: number) => string, extra: Record<string, string> = {}): Sprite {
+  const rows = Array.from({ length: h }, (_, y) => Array.from({ length: w }, (_, x) => fn(x, y)).join(''));
+  return { w, h, palette: { ...K, ...extra }, rows };
+}
+
+/** Distance from point p to segment ab. */
+export function segDist(px: number, py: number, ax: number, ay: number, bx: number, by: number): number {
+  const dx = bx - ax;
+  const dy = by - ay;
+  const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy || 1)));
+  return Math.hypot(px - (ax + t * dx), py - (ay + t * dy));
+}
+
+/** Even-odd point-in-polygon test. */
+export function inPoly(px: number, py: number, pts: [number, number][]): boolean {
+  let inside = false;
+  for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+    const [xi, yi] = pts[i];
+    const [xj, yj] = pts[j];
+    if (yi > py !== yj > py && px < ((xj - xi) * (py - yi)) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+}

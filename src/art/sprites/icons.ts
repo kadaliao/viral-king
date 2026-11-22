@@ -96,18 +96,20 @@ const coin = spr(10, 10, [
   '..kkkkkk..',
 ]);
 
-const fans = spr(10, 10, [
-  '..kkkk....',
-  '.kllllk...',
-  '.kllllk...',
-  '.kllllk...',
-  '..kkkk.kk.',
-  '.kkkhpkppk',
-  'kllkpppppk',
-  'klllkpppk.',
-  'kllllkpk..',
-  'kkkkkkk...',
-]);
+const fans = outline(
+  spr(10, 10, [
+    '..........',
+    '..ccc.h.h.',
+    '..ccc.ppp.',
+    '..ccc..p..',
+    '..........',
+    '...ccc....',
+    '.ccccccc..',
+    '.ccccccc..',
+    '.ccccccc..',
+    '..........',
+  ]),
+);
 
 const views = spr(10, 10, [
   '.kkkkkkkk.',
@@ -245,12 +247,12 @@ const gear = outline(
   spr(10, 10, [
     '..........',
     '....ss....',
+    '.s.ssss.s.',
     '..ssssss..',
-    '..ssddss..',
     '.ssd..dss.',
     '.ssd..dss.',
-    '..ssddss..',
     '..ssssss..',
+    '.s.ssss.s.',
     '....ss....',
     '..........',
   ]),

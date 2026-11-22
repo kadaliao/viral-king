@@ -200,7 +200,6 @@
   .go-head { flex-direction: column; text-align: center; }
   .mega { font-size: 36px; }
   .shop { padding: 8px; }
-  .shop-item { width: 40vw; }
   .shelf-items { justify-content: center; }
   .danmaku.big { font-size: 12px; }
   .help-screen { padding: 8px; }
@@ -215,8 +214,16 @@
   .pile img { width: 16px; height: 16px; }
   .artbar-label { width: 30px; }
   .artbar-label small, .artbar-label { font-size: 12px; }
-  .acard-name { display: none; }
-  .acard-art { margin-top: 6px; }
+  .artbar .acard-name { display: none; }
+  .artbar .acard-art { margin-top: 6px; }
+  .shop-item { width: 26vw; gap: 8px; }
+  .shop-item .acard { --art-w: 24vw; --art-h: 29vw; }
+  .shop-item .ccard { --card-w: 24vw; --card-h: 30vw; }
+  .shop-item .acard-art img { width: 32px; height: 32px; }
+  .shop-item .acard-name { display: block; transform: none; }
+  .shop-desc { min-height: 0; }
+  .shelf-items { gap: 6px; }
+  .acard-price { font-size: 18px; }
   .art-empty span { display: none; }
   .art-menu { bottom: -30px; }
   .stage-area { flex: none; }
