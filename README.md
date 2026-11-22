@@ -1,5 +1,17 @@
 # 流量之王 · Viral King
 
+**像素风短视频博主模拟器：拼内容卡发视频，靠流量神器连乘倍率，把播放量从几百滚到万亿。**
+
+▶ **在线试玩：<https://viral-king.vercel.app>**（浏览器直接玩，不用安装）
+
+![选牌：点出 5 张内容卡，实时预览视频类型和预计播放量](docs/screenshots/hand.png)
+
+| 发布结算：基础流量 × 倍率 | 视频结果卡 |
+|---|---|
+| ![发布结算](docs/screenshots/scoring.png) | ![视频结果卡](docs/screenshots/result.png) |
+| **流量商城：神器、课程、精品卡** | **主菜单** |
+| ![流量商城](docs/screenshots/shop.png) | ![主菜单](docs/screenshots/menu.png) |
+
 一款以短视频平台和流量算法为题材的像素风 Roguelike 卡牌构筑游戏。你从零粉丝的素人博主起步，用内容卡组合视频、买流量神器、利用（也被利用）平台算法，让播放量从几百一路滚到百万、亿、万亿。
 
 纯前端单机游戏，不需要后端、账号或任何网络 API。
